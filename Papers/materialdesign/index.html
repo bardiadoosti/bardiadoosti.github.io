@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+
+
+
+<!-- <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0"> -->
+
+<title>A Computational Method for Evaluating UI Patterns</title>
+<link rel="shortcut icon" href="http://vision.soic.indiana.edu/favicon.ico">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104609729-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<link rel="stylesheet" id="responsive-style-css" href="http://homes.soic.indiana.edu/bdoosti/Papers/style.css" type="text/css" media="all">
+<meta name="generator" content="WordPress 4.8.2">
+<!-- We need this for debugging -->
+<!-- Responsive 1.9.3.3 -->
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #FFFFFF; }
+</style>
+</head>
+
+<body class="page-template-default page page-id-2289 custom-background">
+                 
+<div id="container" class="hfeed">
+        
+        
+	    <div id="wrapper" class="clearfix">
+				
+<div id="content" class="grid col-940">
+        
+	
+		        
+                
+						<div id="post-2289" class="post-2289 page type-page status-publish hentry">       
+				
+                
+<h1 class="entry-title post-title">A Computational Method for Evaluating UI Patterns</h1>
+
+ 
+                
+                <div class="post-entry">
+                  <p><a href="http://homes.soic.indiana.edu/bdoosti/">Bardia Doosti</a>, <a href="http://www.taodong.net/">Tao Dong</a>, <a href="http://www.biplabdeka.net/">Biplab Deka</a> and <a href="http://www.jeffreynichols.com/">Jeffrey Nichols</a></p>
+<p>UI design languages, such as Google's Material Design, make applications both easier to develop and easier to learn by providing a set of standard UI components. Nonetheless, it is hard to assess the impact of design languages in the wild. Moreover, designers often get stranded by strong-opinionated debates around the merit of certain UI components, such as the Floating Action Button and the Navigation Drawer. To address these challenges, this short paper introduces a method for measuring the impact of design languages and informing design debates through analyzing a dataset consisting of view hierarchies, screenshots, and app metadata for more than 9,000 mobile apps. Our data analysis shows that use of Material Design is positively correlated to app ratings, and to some extent, also the number of installs. Furthermore, we show that use of UI components vary by app category, suggesting a more nuanced view needed in design debates.</p>
+
+<div id="attachment_2308" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/cropped.svg" alt="Some of the Material Design cropped components" width="1000"><p class="wp-caption-text">Some of the Material Design cropped components</p></div>
+
+<h2>Methodology</h2>
+
+<h3>Dataset</h3>
+
+We used <i><a href="http://interactionmining.org/rico">Rico</a></i> Dataset which includes over 72,000 Android UI screens from over 9,700 popular apps across 27 categories on the Google Play Store in early 2017.
+
+<div id="attachment_2308" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/category-dist.svg" alt="Category distribution of the apps in the Rico dataset" width="1000"><p class="wp-caption-text">Category distribution of the apps in the <i>Rico</i> dataset</p></div>
+
+Step 1:
+<ul>
+<li>Used a generic keyword to find each material design element via JSON file.</li>
+<li>But some of the items found this way was irrelevant.</li>
+</ul>
+
+<div id="attachment_2308" class="wp-caption aligncenter">
+	<table>
+		<tr>
+			<td><img class=" wp-image-2308" src="./files/12161-519.jpg" width="1000"></td>
+			<td><img class=" wp-image-2308" src="./files/121910-825.jpg" width="1000"></td>
+			<td><img class=" wp-image-2308" src="./files/121944-187.jpg" width="1000"></td>
+			<td><img class=" wp-image-2308" src="./files/122858-265.jpg" width="1000"></td>
+			<td><img class=" wp-image-2308" src="./files/123411-7.jpg" width="1000"></td>
+      <td><img class=" wp-image-2308" src="./files/125243-2129.jpg" width="1000"></td>
+		</tr>
+	</table>
+	<p class="wp-caption-text">Items found with keyword “Float”, irrelevant to “Floating Action Button”</p>
+</div>
+
+Step 2:
+<ul>
+<li>Detecting false positives using their JPEG file.</li>
+<li>Trained a Convolutional Neural Network for each Material Design which is responsible to detect that element.</li>
+<li>Got >95% accuracy for each Material Design element.</li>
+</ul>
+
+<div id="attachment_2308" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/heatmap.png" alt="The heatmap of the frequency divided by maximum value of each Material Design element in Rico dataset" width="1000">
+<p class="wp-caption-text">The heatmap of the frequency divided by maximum value of each Material Design element in <i>Rico</i> dataset</p></div>
+
+<h2>Results</h2>
+
+<h3>Usage of Floating Action Buttons</h3>
+
+<div id="attachment_2308" class="wp-caption aligncenter">
+	<img class=" wp-image-2308" src="./files/float.png" width="1000"></td>
+	<p class="wp-caption-text">
+    (a) The percentage of apps using the Floating Action Button (FAB) in the high-rating group vs. the low-rating group.</br>
+    (b) Box plots of the average ratings of apps using the FAB vs. those not using the FAB.</br>
+    (c) The percentage of apps using the FAB in the more-installed group vs. the less-installed group.</br>
+    (d) Box plots of the number of installs of apps using the FAB vs. those not using the FAB.</p>
+</div>
+
+<h3>Usage of Navigation Drawers</h3>
+
+<div id="attachment_2308" class="wp-caption aligncenter">
+	<img class=" wp-image-2308" src="./files/nd.png" width="1000"></td>
+	<p class="wp-caption-text">
+    (a) The percentage of apps using the Navigation Drawer in the high-rating group vs. the low-rating group.</br>
+    (b) Box plots of the average ratings of apps using the Navigation Drawer vs. those not using the Navigation Drawer.</br>
+    (c) The percentage of apps using the Navigation Drawer in the more-installed group vs. the less-installed groups.</br>
+    (d) Box plots of the number of installs of apps using the Navigation Drawer vs. those not using the Navigation Drawer.</p>
+</div>
+
+<h3>Material Design and App Quality</h3>
+
+<div id="attachment_2308" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/material_mix.svg" alt="Distribution of the percentage of apps using at least one of the six common Material Design elements over percentiles in average rating (blue) and number of installs (orange)" width="1000"><p class="wp-caption-text">Distribution of the percentage of apps using at least one of the six common Material Design elements over percentiles in average rating (blue) and number of installs (orange)</p></div>
+
+<div id="attachment_2308" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/collage.svg" alt="Thumbnails of FABs in the Food and Drink category apps" width="1000"><p class="wp-caption-text">Thumbnails of FABs in the Food and Drink category apps</p></div>
+
+<p>&nbsp;</p>
+<!--
+<h2>BibTeX</h2>
+<pre>@inproceedings{Doosti:2018,
+ author = {Doosti, Bardia and Dong, Tao and Deka, Biplab and Nichols, Jeffrey},
+ title = {},
+ booktitle = {},
+ series = {UIST '18},
+ year = {2018},
+ isbn = {},
+ location = {Berlin, Germany},
+ pages = {},
+ numpages = {2},
+ url = {},
+ doi = {},
+ acmid = {},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {},
+ }</pre>
+ -->
+
+<h2>Acknowledgements</h2>
+<p>This work was done in Google in a summer internship program.</p>
+<table class="project-table" style="margin: 0 auto; width: 90%; border: 0;">
+<tbody style="border: 0;">
+<tr style="border: 0;">
+<td style="border: 0;" align="center"><a href="http://research.google.com/"><img class="aligncenter wp-image-1777" src="./files/Google_2015_logo.svg" alt="" width="120" sizes="(max-width: 60px) 100vw, 60px"></a></td>
+</tr>
+<tr style="border: 0;">
+<td style="border: 0;" align="center"><a href="http://research.google.com/">Google Research</a></td>
+</tr>
+</tbody>
+</table>
+                          </div><!-- end of .post-entry -->
+            
+				
+           
+
+<div class="post-edit"></div>  				               
+				      
+			</div><!-- end of #post-2289 -->       
+			            
+						
+
+
+
+			            
+          
+      
+</div><!-- end of #content -->
+
+  </div><!-- end of #wrapper -->
+</div><!-- end of #container -->
+
+<div id="footer" class="clearfix">
+	
+    <div id="footer-wrapper"><!-- end of col-940 --><!-- end of .copyright -->
+        
+      <div class="grid col-300 scroll-top"><!-- end .powered -->    </div>
+    </div>
+    <!-- end #footer-wrapper -->
+    
+	</div><!-- end #footer -->
+</body></html>

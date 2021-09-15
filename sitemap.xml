@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
+<url>
+  <loc>http://homes.sice.indiana.edu/bdoosti/</loc>
+  <lastmod>2018-11-25T05:19:55+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>http://homes.sice.indiana.edu/bdoosti/index.html</loc>
+  <lastmod>2018-11-25T05:19:55+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://homes.sice.indiana.edu/bdoosti/Papers/materialdesign/</loc>
+  <lastmod>2018-09-18T20:03:34+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://homes.sice.indiana.edu/bdoosti/Papers/webdesign/</loc>
+  <lastmod>2017-10-27T21:54:30+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>http://homes.sice.indiana.edu/bdoosti/Papers/webdesign/p329-doosti.pdf</loc>
+  <lastmod>2017-08-08T07:39:37+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+
+
+</urlset>

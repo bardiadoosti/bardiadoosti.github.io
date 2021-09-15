@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<title>A Deep Study into the History of Web Design</title>
+<link rel="shortcut icon" href="http://vision.soic.indiana.edu/favicon.ico">
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-104609729-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+<link rel="stylesheet" id="responsive-style-css" href="http://homes.soic.indiana.edu/bdoosti/Papers/style.css" type="text/css" media="all">
+<style type="text/css" id="custom-background-css">
+body.custom-background { background-color: #FFFFFF; }
+</style>
+</head>
+
+<body class="page-template-default page page-id-2289 custom-background">
+                 
+<div id="container" class="hfeed">
+        
+        
+	    <div id="wrapper" class="clearfix">
+				
+<div id="content" class="grid col-940">
+        
+	
+		        
+                
+						<div id="post-2289" class="post-2289 page type-page status-publish hentry">       
+				
+                
+<h1 class="entry-title post-title">A Deep Study into the History of Web Design</h1>
+
+ 
+                
+                <div class="post-entry">
+                    <p><a href="http://homes.soic.indiana.edu/bdoosti/">Bardia Doosti</a>, <a href="https://www.cs.indiana.edu/~djcran/">David J. Crandall</a> and <a href="http://www.normsu.com/">Norman Makoto Su</a></p>
+<p>Since its ambitious beginnings to create a hyperlinked information system, the web has evolved over 25 years to become our primary means of expression and communication. No longer limited to text, the evolving visual features of websites are important signals of larger societal shifts in humanity’s technologies, aesthetics, cultures, and industries. Just as paintings can be analyzed to study an era’s social norms and culture, techniques for systematically analyzing large-scale archives of the web could help unpack global changes in the visual appearance of websites and of modern society itself. In this paper, we propose automated techniques for characterizing the visual “style” of websites and use this analysis to discover and visualize shifts over time and across website domains. In particular, we use deep Convolutional Neural Networks to classify websites into 26 subject areas (e.g., technology, news media websites) and 4 design eras. The features produced by this process then allow us to quantitatively characterize the appearance of any given website. We demonstrate how to track changes in these features over time and introduce a technique using Hidden Markov Models (HMMs) to discover sudden, significant changes in these appearances. Finally, we visualize the features learned by our network to help reveal the distinctive visual elements that were discovered by the network.</p>
+<h2>Overview and Results</h2>
+<h3>Dataset</h3>
+<h4>Web Design Era Detection</h4>
+<p>For the design era detection task we used <a href="http://web.archive.org/">the internet archive</a>&nbsp;to obtain&nbsp;snapshots of 35 websites from 1996 to 2014.</p>
+<h4>Genre Detection</h4>
+<div id="attachment_2308" style="width: 397px" class="wp-caption aligncenter"><img class=" wp-image-2308" src="./files/freq-300x186.png" alt="Frequency of website genres in our dataset" width="387" height="240" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/freq-300x186.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/freq-768x475.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/freq-1024x634.png 1024w, http://vision.soic.indiana.edu/wp/wp-content/uploads/freq.png 1493w" sizes="(max-width: 387px) 100vw, 387px"><p class="wp-caption-text">Frequency of website genres in our dataset</p></div>
+<p>For the Genre detection task we used CrowdFlower’s URL categorization dataset, which consists of more than 31,000 URL domains categorized in 26 genres.</p>
+<h3>Classification and Visualization</h3>
+<p>For the first step we trained two separate networks for detecting the category and design era of a website.&nbsp;But our focus is not on just getting the best result on classification; the more important issue was visualizing the features learned by the network.</p>
+<p>We used the Class Activation Mapping (CAM) technique to visualize the most important part of a page’s web design for each class (web site category or web design era)</p>
+<div id="attachment_2311" style="width: 436px" class="wp-caption aligncenter"><img class=" wp-image-2311" src="./files/heatmap-300x76.png" alt="Heat maps showing which parts of a website support each of three different class hypotheses, according to the classifier." width="426" height="108" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/heatmap-300x76.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/heatmap-768x194.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/heatmap-1024x258.png 1024w, http://vision.soic.indiana.edu/wp/wp-content/uploads/heatmap.png 1035w" sizes="(max-width: 426px) 100vw, 426px"><p class="wp-caption-text">Heat maps showing which parts of a website support each of three different class hypotheses, according to the classifier.</p></div>
+<p>For example as websites in 90s were narrower, the network used this fact (white margins on the right and bottom of the website) to detect 90s websites.</p>
+<div id="attachment_2368" style="width: 443px" class="wp-caption aligncenter"><img class="wp-image-2368 " src="./files/Screen-Shot-2017-08-07-at-12.58.18-AM-300x135.png" alt="" width="433" height="195" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.18-AM-300x135.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.18-AM-768x346.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.18-AM-1024x462.png 1024w" sizes="(max-width: 433px) 100vw, 433px"><p class="wp-caption-text">Adobe.com in 1997 (left) and network’s attention on the margins (right)</p></div>
+<div id="attachment_2369" style="width: 441px" class="wp-caption aligncenter"><img class="wp-image-2369 " src="./files/Screen-Shot-2017-08-07-at-12.58.32-AM-300x135.png" alt="" width="431" height="194" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.32-AM-300x135.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.32-AM-768x345.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.32-AM-1024x460.png 1024w" sizes="(max-width: 431px) 100vw, 431px"><p class="wp-caption-text">Apple.com in 1999 (left) and network’s attention on the margins (right)</p></div>
+<p>As the speed of the internet increased, the size of the pictures in the webpages became larger&nbsp;and the network used this fact to classify the websites from the 2009-2013 era.</p>
+<div id="attachment_2371" style="width: 436px" class="wp-caption aligncenter"><img class="wp-image-2371 " src="./files/Screen-Shot-2017-08-07-at-12.58.46-AM-300x137.png" alt="" width="426" height="195" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.46-AM-300x137.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.46-AM-768x350.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.46-AM-1024x466.png 1024w" sizes="(max-width: 426px) 100vw, 426px"><p class="wp-caption-text">Xerox.com in 2013 (left) and network’s attention on the big objects (right)</p></div>
+<div id="attachment_2374" style="width: 434px" class="wp-caption aligncenter"><img class=" wp-image-2374" src="./files/Screen-Shot-2017-08-07-at-12.58.58-AM-300x137.png" alt="" width="424" height="194" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.58-AM-300x137.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.58-AM-768x350.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.58.58-AM-1024x467.png 1024w" sizes="(max-width: 424px) 100vw, 424px"><p class="wp-caption-text">Apple.com in 2009 (left) and network’s attention on the big objects (right)</p></div>
+<p>But for the genre detection it seems that the network’s attention&nbsp;is on the objects used from that class in the web design. For example for the&nbsp;<em>Auto and Vehicle</em> class, the network is trained to find&nbsp;<em>Car</em>s in the website.</p>
+<div id="attachment_2375" style="width: 436px" class="wp-caption aligncenter"><img class=" wp-image-2375" src="./files/Screen-Shot-2017-08-07-at-12.59.09-AM-300x136.png" alt="" width="426" height="193" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.09-AM-300x136.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.09-AM-768x348.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.09-AM-1024x464.png 1024w" sizes="(max-width: 426px) 100vw, 426px"><p class="wp-caption-text">Bmw.com.tr from Auto and Vehicle class (left) and network’s attention on the Cars used in the design (right)</p></div>
+<div id="attachment_2376" style="width: 434px" class="wp-caption aligncenter"><img class=" wp-image-2376" src="./files/Screen-Shot-2017-08-07-at-12.59.21-AM-300x136.png" alt="" width="424" height="192" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.21-AM-300x136.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.21-AM-768x349.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/Screen-Shot-2017-08-07-at-12.59.21-AM-1024x465.png 1024w" sizes="(max-width: 424px) 100vw, 424px"><p class="wp-caption-text">Browneyedbaker.com from Food and Drink class (left) and network’s attention on the Foods used in the design (right)</p></div>
+<h3 class="p1">Web Designs Across Eras</h3>
+<p>To understand how web design has changed over time and how major design pioneers influenced other websites, we trained a network with five major websites from different categories (apple.com, msn.com, cnn.com, slac.stanford.edu and whithouse.gov) and used other websites for testing the model. We plotted network confidence over time.</p>
+<p>To make the sudden changes of the plots more visible we used Hidden Markov Model (HMM) to generate a smoothed plot revealing sudden moves of the graph.</p>
+<p>As we can see in the plot below, indiana.edu which is an educational website, is detected to be very similar to slac.stanford.edu, another educational website.</p>
+<p><img class="alignnone wp-image-2313" src="./files/indiana-300x150.png" alt="" width="438" height="220" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/indiana-300x150.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/indiana-768x385.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/indiana-1024x513.png 1024w" sizes="(max-width: 438px) 100vw, 438px"><img class="alignnone wp-image-2314" src="./files/indianaHMM-300x148.png" alt="" width="438" height="216" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/indianaHMM-300x148.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/indianaHMM-768x378.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/indianaHMM-1024x504.png 1024w" sizes="(max-width: 438px) 100vw, 438px"></p>
+<p class="p1">Similarity of indiana.edu to each canonical site</p>
+<p>&nbsp;</p>
+<p>Also in the plots below we see that yahoo.com was detected to be very similar to msn.com for a long time but in recent years it was detected to be very similar to apple.com.</p>
+<p><img class="alignnone wp-image-2349" src="./files/yahoo-eps-converted-to-300x150.png" alt="" width="434" height="217" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/yahoo-eps-converted-to-300x150.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/yahoo-eps-converted-to-768x385.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/yahoo-eps-converted-to-1024x513.png 1024w" sizes="(max-width: 434px) 100vw, 434px"><img class="alignnone wp-image-2343" src="./files/HMMyahoo-eps-converted-to-300x148.png" alt="" width="436" height="215" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMyahoo-eps-converted-to-300x148.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMyahoo-eps-converted-to-768x378.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMyahoo-eps-converted-to-1024x504.png 1024w" sizes="(max-width: 436px) 100vw, 436px"></p>
+<p class="p1">Similarity of yahoo.com to each canonical site</p>
+<p class="p1"><img class="alignnone wp-image-2346" src="./files/amazon-eps-converted-to-300x150.png" alt="" width="436" height="218" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/amazon-eps-converted-to-300x150.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/amazon-eps-converted-to-768x385.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/amazon-eps-converted-to-1024x513.png 1024w" sizes="(max-width: 436px) 100vw, 436px"><img class="alignnone wp-image-2347" src="./files/HMMamazon-eps-converted-to-300x148.png" alt="" width="435" height="215" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMamazon-eps-converted-to-300x148.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMamazon-eps-converted-to-768x378.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMamazon-eps-converted-to-1024x504.png 1024w" sizes="(max-width: 435px) 100vw, 435px"></p>
+<p class="p1">Similarity of amazon.com&nbsp;to each canonical site</p>
+<p class="p1">Finally, we merged all the sites and plotted the confidence of the network to see how web design as a whole has changed over time.</p>
+<p class="p1"><img class="alignnone wp-image-2363" src="./files/all-eps-converted-to-300x150.png" alt="" width="430" height="215" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/all-eps-converted-to-300x150.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/all-eps-converted-to-768x385.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/all-eps-converted-to-1024x513.png 1024w" sizes="(max-width: 430px) 100vw, 430px"><img class="alignnone wp-image-2364" src="./files/HMMall2-eps-converted-to-300x148.png" alt="" width="428" height="211" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMall2-eps-converted-to-300x148.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMall2-eps-converted-to-768x378.png 768w, http://vision.soic.indiana.edu/wp/wp-content/uploads/HMMall2-eps-converted-to-1024x504.png 1024w" sizes="(max-width: 428px) 100vw, 428px"></p>
+<p class="p1">As we see in this graph, these sites were detected to be very similar to msn.com until&nbsp;2006, when they were detected to be more and more similar to apple.com. As we can also see in the HMM generated graph, the other three websites didn’t seem to change a lot in these years.</p>
+<h3>Image Generation</h3>
+<p>In addition to recognition we wanted to show what characterized a web design in general for a particular genre or era. We used trained features of the network to produce new web designs which were not part of our dataset. We used Deep Convolutional Generative Adversarial Networks (DCGAN) trained with more than 170 thousand contemporary websites. Each block of the picture below is produced with a random initialization.</p>
+<div id="attachment_2297" style="width: 375px" class="wp-caption aligncenter"><img class=" wp-image-2297" src="./files/webgen-300x300.png" alt="" width="365" height="365" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/webgen-300x300.png 300w, http://vision.soic.indiana.edu/wp/wp-content/uploads/webgen-150x150.png 150w, http://vision.soic.indiana.edu/wp/wp-content/uploads/webgen.png 512w" sizes="(max-width: 365px) 100vw, 365px"><p class="wp-caption-text">Websites generated by our Generative Adversarial Network</p></div>
+<p>&nbsp;</p>
+<h2>BibTeX</h2>
+<pre>@inproceedings{Doosti:2017:DSH:3091478.3091503,
+ author = {Doosti, Bardia and Crandall, David J. and Su, Norman Makoto},
+ title = {A Deep Study into the History of Web Design},
+ booktitle = {Proceedings of the 2017 ACM on Web Science Conference},
+ series = {WebSci '17},
+ year = {2017},
+ isbn = {978-1-4503-4896-6},
+ location = {Troy, New York, USA},
+ pages = {329--338},
+ numpages = {10},
+ url = {http://doi.acm.org/10.1145/3091478.3091503},
+ doi = {10.1145/3091478.3091503},
+ acmid = {3091503},
+ publisher = {ACM},
+ address = {New York, NY, USA},
+ keywords = {convolutional neural networks, cultural analytics, deep learning, web design},
+ }</pre>
+<h2>Resources</h2>
+<h3>Caffe Model</h3>
+<p>We provide our trained caffe models for web category detection and web design era detection. Both of the models are AlexNet enhanced with the global average pooling layer for the Class Activation Mapping.</p>
+<ul>
+<li>Web category detection model:&nbsp;<a href="http://vision.soic.indiana.edu/wp/wp-content/uploads/Category.tar">Download</a></li>
+<li>Web design era detection model:&nbsp;<a href="http://vision.soic.indiana.edu/wp/wp-content/uploads/Era.tar">Download</a></li>
+<li>Web Designs Across Eras <a href="http://vision.soic.indiana.edu/webdesign_files/Temporal.tar.gz">Download</a></li>
+</ul>
+<p>For fine-tuning this models you have to use <span style="font-family: monospace, serif;">-weights</span> in the training and pass the caffemodel file. <a href="http://caffe.berkeleyvision.org/gathered/examples/finetune_flickr_style.html">More info</a></p>
+<h3>Internet Archive Crawler</h3>
+<p>You can download our Internet Archive Crawler from <a href="https://github.com/bardiadoosti/InternetArchiveCrawler">here</a>. It uses <a href="http://phantomjs.org/">PhantomJS</a> so download pre-compiled file and put it beside our code. If you used our code or models please cite our paper.</p>
+<h2>Acknowledgements</h2>
+<p>We thank Wen Chen and Mingze Xu for early development of our HMM for temporal smoothing. This work was supported in part by the National Science Foundation through CAREER grant IIS-1253549 and Nvidia, and used the compute facilities of the FutureSystems Romeo cluster which is supported by Indiana University and NSF RaPyDLI grant 1439007.</p>
+<table class="project-table" style="margin: 0 auto; width: 90%; border: 0;">
+<tbody style="border: 0;">
+<tr style="border: 0;">
+<td style="border: 0;" align="center"><a href="http://www.nsf.gov/"><img src="./files/logo_nsf-e1318797446626.jpg" alt="National Science Foundation"></a></td>
+<td style="border: 0;" align="center"></td>
+<td style="border: 0;" align="center"><a href="http://nvidia.com/"><img class="aligncenter wp-image-1777" src="./files/351px-Nvidia_logo.svg_.png" alt="" width="60" height="44" srcset="http://vision.soic.indiana.edu/wp/wp-content/uploads/351px-Nvidia_logo.svg_.png 351w, http://vision.soic.indiana.edu/wp/wp-content/uploads/351px-Nvidia_logo.svg_-300x221.png 300w" sizes="(max-width: 60px) 100vw, 60px"></a></td>
+<td style="border: 0;" align="center"></td>
+<td style="border: 0;" align="center"></td>
+<td style="border: 0;" align="center"></td>
+</tr>
+<tr style="border: 0;">
+<td style="border: 0;" align="center"><a href="http://www.nsf.gov/">National Science<br>
+Foundation</a></td>
+<td style="border: 0;" align="center"></td>
+<td style="border: 0;" align="center"><a href="http://www.nvidia.com/">Nvidia</a></td>
+</tr>
+</tbody>
+</table>
+                          </div><!-- end of .post-entry -->
+            
+				
+           
+
+<div class="post-edit"></div>  				               
+				      
+			</div><!-- end of #post-2289 -->       
+			            
+						
+
+
+
+			            
+          
+      
+</div><!-- end of #content -->
+
+  </div><!-- end of #wrapper -->
+</div><!-- end of #container -->
+
+<div id="footer" class="clearfix">
+	
+    <div id="footer-wrapper"><!-- end of col-940 --><!-- end of .copyright -->
+        
+      <div class="grid col-300 scroll-top"><!-- end .powered -->    </div>
+    </div>
+    <!-- end #footer-wrapper -->
+    
+	</div><!-- end #footer -->
+</body></html>
