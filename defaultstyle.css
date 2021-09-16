@@ -23,7 +23,7 @@ table {
 body {
 	margin:0;
 	padding:0;
-	background-color:#990000;
+	background-color:#065388;
 	color:#333;
 	font-family:Georgia;
 }
@@ -61,7 +61,7 @@ body {
 	background-color:#FFF;
 	margin:0;
 	font-family: Georgia;
-	background-image: url(sample-spring.jpg);
+	background-image: url(banner.jpg);
 	background-position: center;
 	background-repeat: no-repeat;
         background-size: cover;
@@ -78,6 +78,14 @@ body {
 	-moz-border-radius-bottomright:10px;
 	-webkit-border-bottom-right-radius:10px;
 }
+
+#caption {
+	color: #FFF;
+	font-family: Georgia;
+	font-size:14px;
+	margin-bottom: 20px;
+}
+
 h1 {
 	margin:0;
 	padding: 10px;
@@ -181,6 +189,12 @@ h2 {
 	color:#494949;
 	font-weight:normal;
 	font-size:200%;
+}
+
+h3 {
+	margin-top:50px;
+	color:#494949;
+	font-weight:bold;
 }
 
 .right {
